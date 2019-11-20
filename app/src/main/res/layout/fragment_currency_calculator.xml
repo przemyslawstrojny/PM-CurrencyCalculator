@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <Button
+        android:text="Choose currency"
+        android:drawableLeft="@drawable/ic_currency"
+        android:paddingLeft="16dp"
+        android:textColor="#4D4D4D"
+        android:textAlignment="viewStart"
+        android:textSize="18sp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:id="@+id/currency_from"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:backgroundTint="#FFFFFF"
+        android:background="@drawable/round_top_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp" />
+    <Button
+        android:text="Choose Currency"
+        android:background="@drawable/round_button"
+        android:paddingLeft="16dp"
+        android:textColor="#4D4D4D"
+        android:drawableLeft="@drawable/ic_currency"
+        android:textAlignment="viewStart"
+        android:textSize="18sp"
+        android:id="@+id/currency_to"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:backgroundTint="#FFFFFF"
+        android:layout_below="@+id/currency_from"/>
+
+    <EditText
+        android:id="@+id/quantity"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/currency_to"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp"
+        android:textAlignment="center"
+        android:layout_marginRight="16dp"
+        android:textSize="20sp"
+        android:text="Provide quantity"/>
+    <Button
+        android:drawableLeft="@drawable/ic_search"
+        android:drawableTint="#333333"
+        android:textColor="#333333"
+        android:layout_margin="16dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginLeft="32dp"
+        android:paddingLeft="16dp"
+        android:id="@+id/calculate_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/quantity"
+        android:layout_centerInParent="true"
+        android:background="@drawable/round_button_all"
+        android:backgroundTint="#d2d8f9"
+        android:textAlignment="center"
+        android:text="Calculate"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/text_last_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Last update: dd/mm/yyyy"
+        android:textSize="15sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@+id/calculate_button"
+        android:layout_marginRight="20dp"/>
+    <Button
+        android:id="@+id/update_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/text_last_update"
+        android:layout_below="@+id/calculate_button"
+        android:text="update data"
+        android:padding="16dp"
+        android:background="@drawable/round_button_all"
+        android:backgroundTint="#d2d8f9"/>
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Result"
+        android:layout_below="@+id/update_button"
+        android:layout_marginTop="32dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp"/>
+
+    <Button
+        android:id="@+id/change"
+        android:drawableLeft="@drawable/ic_change"
+        android:background="@drawable/round_button_all"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="164dp"
+        android:layout_marginEnd="16dp" />
+</RelativeLayout>
