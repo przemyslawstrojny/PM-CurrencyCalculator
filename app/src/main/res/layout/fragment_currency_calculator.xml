@@ -8,7 +8,7 @@
         android:paddingLeft="16dp"
         android:textColor="#4D4D4D"
         android:textAlignment="viewStart"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:id="@+id/currency_from"
@@ -17,7 +17,7 @@
         android:backgroundTint="#FFFFFF"
         android:background="@drawable/round_top_button"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="170dp" />
+        android:layout_marginTop="120dp" />
     <Button
         android:text="Choose Currency"
         android:background="@drawable/round_button"
@@ -25,7 +25,7 @@
         android:textColor="#4D4D4D"
         android:drawableLeft="@drawable/ic_currency"
         android:textAlignment="viewStart"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:id="@+id/currency_to"
         android:layout_width="match_parent"
         android:layout_height="70dp"
@@ -55,7 +55,7 @@
         android:layout_marginRight="32dp"
         android:layout_marginLeft="32dp"
         android:paddingLeft="16dp"
-        android:id="@+id/search_button"
+        android:id="@+id/calculate_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/quantity"
@@ -65,4 +65,34 @@
         android:textAlignment="center"
         android:text="Calculate"
         android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/text_last_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Last update: dd/mm/yyyy"
+        android:textSize="15sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@+id/calculate_button"
+        android:layout_marginRight="20dp"/>
+    <Button
+        android:id="@+id/update_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/text_last_update"
+        android:layout_below="@+id/calculate_button"
+        android:text="update data"
+        android:padding="16dp"
+        android:background="@drawable/round_button_all"
+        android:backgroundTint="#d2d8f9"/>
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Here you result"
+        android:layout_below="@+id/update_button"
+        android:layout_marginTop="32dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp"/>
 </RelativeLayout>
