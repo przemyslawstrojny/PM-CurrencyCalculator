@@ -90,7 +90,7 @@
         android:id="@+id/result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Here you result"
+        android:text="Result"
         android:layout_below="@+id/update_button"
         android:layout_marginTop="32dp"
         android:layout_centerHorizontal="true"
