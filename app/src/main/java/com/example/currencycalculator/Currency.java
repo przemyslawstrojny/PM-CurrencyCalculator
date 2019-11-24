@@ -12,6 +12,7 @@ public class Currency {
         this.conversion_rate = conversion_rate;
         this.currency_code = currency_code;
         this.average_rate = average_rate;
+
     }
 
     public String getCurrency_name() {
