@@ -1,22 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+        xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/text_analysis"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Data"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:textSize="30sp"/>
+            android:id="@+id/text_analysis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Data"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:textSize="30sp"/>
 
     <ListView
-        android:layout_below="@+id/text_analysis"
-        android:layout_marginTop="16dp"
-        android:id="@+id/list_to_analyse"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+            android:layout_below="@+id/text_analysis"
+            android:layout_marginTop="16dp"
+            android:id="@+id/list_to_analyse"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    <Button
+            android:text="Choose currency"
+            android:drawableLeft="@drawable/ic_currency"
+            android:paddingLeft="16dp"
+            android:textColor="#4D4D4D"
+            android:textAlignment="viewStart"
+            android:textSize="18sp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:id="@+id/currency_observed"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:backgroundTint="#FFFFFF"
+            android:background="@drawable/round_top_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="120dp"/>
 
 </RelativeLayout>
