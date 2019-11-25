@@ -1,5 +1,7 @@
 package com.example.currencycalculator;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,8 +13,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class FragmentCurrencyCalculator extends Fragment {
     View rootView;
+    private Button currencyFrom;
+    private Button currencyTo;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -23,20 +29,20 @@ public class FragmentCurrencyCalculator extends Fragment {
         TextView result = (TextView) rootView.findViewById(R.id.result);
 
 
-        Button currencyFrom = (Button) rootView.findViewById(R.id.currency_from);
+        currencyFrom = (Button) rootView.findViewById(R.id.currency_from);
         currencyFrom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO open activity with currency list
+                startActivityForResult(new Intent(getActivity().getApplicationContext(),CurrencyListActivity.class),1);
             }
         });
 
 
-        Button currencyTo = (Button) rootView.findViewById(R.id.currency_to);
+        currencyTo = (Button) rootView.findViewById(R.id.currency_to);
         currencyTo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO open activity with list of target currencies
+                startActivityForResult(new Intent(getActivity().getApplicationContext(),CurrencyListActivity.class),2);
             }
         });
 
@@ -67,5 +73,24 @@ public class FragmentCurrencyCalculator extends Fragment {
         });
 
         return rootView;
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        List<Fragment> fragments = getChildFragmentManager().getFragments();
+        if (fragments != null) {
+            for (Fragment fragment : fragments) {
+                fragment.onActivityResult(requestCode, resultCode, data);
+            }
+        }
+        if(requestCode ==  1 && resultCode == Activity.RESULT_OK)
+        {
+            currencyFrom.setText(data.getStringExtra("message"));
+        }
+        if(requestCode ==  2 && resultCode == Activity.RESULT_OK)
+        {
+            currencyTo.setText(data.getStringExtra("message"));
+        }
     }
 }

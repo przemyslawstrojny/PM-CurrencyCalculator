@@ -51,4 +51,8 @@ public class Currency {
     public void setAverage_rate(double average_rate) {
         this.average_rate = average_rate;
     }
+
+    public String toString(){
+        return currency_name;
+    }
 }
