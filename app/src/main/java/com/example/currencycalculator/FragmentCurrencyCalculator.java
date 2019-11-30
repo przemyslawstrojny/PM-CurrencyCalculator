@@ -49,6 +49,7 @@ public class FragmentCurrencyCalculator extends Fragment {
         currencyFrom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(getActivity().getApplicationContext(),CurrencyListActivity.class);
                 startActivityForResult(new Intent(getActivity().getApplicationContext(),CurrencyListActivity.class),1);
             }
         });
@@ -103,7 +104,10 @@ public class FragmentCurrencyCalculator extends Fragment {
         change.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO replace value of button currencyFrom with currencyTo
+                String c = currencyFrom.getText().toString();
+                String c1 = currencyTo.getText().toString();
+                currencyFrom.setText(c1);
+                currencyTo.setText(c);
             }
         });
 

@@ -8,13 +8,22 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 public class CurrencyListActivity extends AppCompatActivity {
     private ListView listView;
     private ArrayAdapter<Currency> adapter;
     private List<Currency> currencyList = new ArrayList<>();
+    private  WebClient webClient = WebClient.getInstance();
+    private Parser parser = new Parser();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,11 +31,27 @@ public class CurrencyListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_currency_list);
 
         listView = findViewById(R.id.listView1);
-        testowygeneratordousuniecia();
+        //testowygeneratordousuniecia();
 
-        adapter = new ArrayAdapter<Currency>(this, android.R.layout.simple_list_item_1, currencyList);
-        listView.setAdapter(adapter);
-        onListViewClickListener();
+        webClient.getCurrencies(new Callback() {
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                final List<Currency> currencies = parser.parseCurrencyResponse(response);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        adapter = new ArrayAdapter<Currency>(CurrencyListActivity.this, android.R.layout.simple_list_item_1, currencies);
+                        listView.setAdapter(adapter);
+                        onListViewClickListener();
+                    }
+                });
+            }
+        });
     }
 
     private void onListViewClickListener(){
