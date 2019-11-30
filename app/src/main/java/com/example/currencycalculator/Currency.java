@@ -53,6 +53,6 @@ public class Currency {
     }
 
     public String toString(){
-        return currency_name;
+        return currency_name + " " + currency_code;
     }
 }

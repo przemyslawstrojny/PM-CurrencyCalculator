@@ -12,6 +12,22 @@ import okhttp3.Response;
 
 public class Parser {
 
+    public String parseUpdateDate(Response response){
+        String date;
+        try{
+            final JSONArray jsonArray = new JSONArray(response.body().string());
+            final JSONObject jsonObject = jsonArray.getJSONObject(0);
+            date = jsonObject.getString("effectiveDate");
+            return date;
+        }catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public List<Currency> parseCurrencyResponse(Response responseString){
         ArrayList<Currency> currencyArrayList = new ArrayList<>();
         try {

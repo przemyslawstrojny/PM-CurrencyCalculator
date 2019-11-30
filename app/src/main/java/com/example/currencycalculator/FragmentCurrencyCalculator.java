@@ -15,13 +15,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.io.IOException;
 import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 public class FragmentCurrencyCalculator extends Fragment {
     View rootView;
     private Button currencyFrom;
     private Button currencyTo;
     private SharedPreferences pref;
+    private  WebClient webClient = WebClient.getInstance();
+    private Parser parser = new Parser();
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -31,7 +41,7 @@ public class FragmentCurrencyCalculator extends Fragment {
         this.getActivity().getPreferences(Context.MODE_PRIVATE);
 
         EditText quantity = (EditText) rootView.findViewById(R.id.quantity);
-        TextView updateDate = (TextView) rootView.findViewById(R.id.text_last_update);
+        final TextView updateDate = (TextView) rootView.findViewById(R.id.text_last_update);
         TextView result = (TextView) rootView.findViewById(R.id.result);
 
 
@@ -39,6 +49,7 @@ public class FragmentCurrencyCalculator extends Fragment {
         currencyFrom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(getActivity().getApplicationContext(),CurrencyListActivity.class);
                 startActivityForResult(new Intent(getActivity().getApplicationContext(),CurrencyListActivity.class),1);
             }
         });
@@ -68,7 +79,24 @@ public class FragmentCurrencyCalculator extends Fragment {
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO update data and set updateDate text view
+                webClient.getCurrencies(new Callback() {
+                    @Override
+                    public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    @Override
+                    public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                        final String date = parser.parseUpdateDate(response);
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                updateDate.setText("Last update: "+ date);
+                            }
+                        });
+
+                    }
+                });
             }
         });
 
@@ -76,7 +104,10 @@ public class FragmentCurrencyCalculator extends Fragment {
         change.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO replace value of button currencyFrom with currencyTo
+                String c = currencyFrom.getText().toString();
+                String c1 = currencyTo.getText().toString();
+                currencyFrom.setText(c1);
+                currencyTo.setText(c);
             }
         });
 
