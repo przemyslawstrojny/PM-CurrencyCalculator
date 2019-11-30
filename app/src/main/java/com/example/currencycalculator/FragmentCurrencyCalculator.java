@@ -1,7 +1,9 @@
 package com.example.currencycalculator;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -19,10 +21,14 @@ public class FragmentCurrencyCalculator extends Fragment {
     View rootView;
     private Button currencyFrom;
     private Button currencyTo;
+    private SharedPreferences pref;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_currency_calculator, container, false);
+
+        pref = this.getActivity().getPreferences(Context.MODE_PRIVATE);
+        this.getActivity().getPreferences(Context.MODE_PRIVATE);
 
         EditText quantity = (EditText) rootView.findViewById(R.id.quantity);
         TextView updateDate = (TextView) rootView.findViewById(R.id.text_last_update);
@@ -36,6 +42,7 @@ public class FragmentCurrencyCalculator extends Fragment {
                 startActivityForResult(new Intent(getActivity().getApplicationContext(),CurrencyListActivity.class),1);
             }
         });
+        currencyFrom.setText(getPref("currencyFrom"));
 
 
         currencyTo = (Button) rootView.findViewById(R.id.currency_to);
@@ -45,6 +52,7 @@ public class FragmentCurrencyCalculator extends Fragment {
                 startActivityForResult(new Intent(getActivity().getApplicationContext(),CurrencyListActivity.class),2);
             }
         });
+        currencyTo.setText(getPref("currencyTo"));
 
         //Button to calculate the result
         Button calculateButton = (Button) rootView.findViewById(R.id.calculate_button);
@@ -87,10 +95,22 @@ public class FragmentCurrencyCalculator extends Fragment {
         if(requestCode ==  1 && resultCode == Activity.RESULT_OK)
         {
             currencyFrom.setText(data.getStringExtra("message"));
+            savePref(currencyFrom,"currencyFrom");
         }
         if(requestCode ==  2 && resultCode == Activity.RESULT_OK)
         {
             currencyTo.setText(data.getStringExtra("message"));
+            savePref(currencyTo,"currencyTo");
         }
+    }
+
+    public void savePref(Button field, String key){
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString(key, field.getText().toString());
+        editor.commit();
+    }
+
+    public String getPref(String key){
+        return pref.getString(key, "");
     }
 }
