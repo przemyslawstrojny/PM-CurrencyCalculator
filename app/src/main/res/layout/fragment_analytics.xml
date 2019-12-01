@@ -7,7 +7,7 @@
             android:id="@+id/text_analysis"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Data"
+            android:text="@string/text_analysis"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp"
             android:textSize="30sp"/>
@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     <Button
-            android:text="Choose currency"
+            android:text="@string/currency_observed"
             android:drawableLeft="@drawable/ic_currency"
             android:paddingLeft="16dp"
             android:textColor="#4D4D4D"

@@ -8,4 +8,8 @@
     <string name="result">Wynik</string>
     <string name="text_last_update">Ostatnia aktualizacja: rrrr-mm-dd</string>
     <string name="update_button">Zaktualizuj dane</string>
+    <string name="nav_search">Szukaj</string>
+    <string name="nav_show_chart">Analityka</string>
+    <string name="text_analysis">Dane</string>
+    <string name="currency_observed">Wybierz walutę</string>
 </resources>

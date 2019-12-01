@@ -8,4 +8,8 @@
     <string name="result">Результат</string>
     <string name="text_last_update">Останні обновлення:рррр-мм-дд</string>
     <string name="update_button">Обновити данні</string>
+    <string name="nav_search">Пошук</string>
+    <string name="nav_show_chart">Аналітика</string>
+    <string name="text_analysis">Данні</string>
+    <string name="currency_observed">Вибери валюту</string>
 </resources>
