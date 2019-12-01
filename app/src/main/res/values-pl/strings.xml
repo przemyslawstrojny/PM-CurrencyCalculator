@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kalkulator walutowy</string>
+    <string name="currency_from">Wybierz walutę</string>
+    <string name="currency_to">Wybierz walutę</string>
+    <string name="quantity">Wpisz ilość</string>
+    <string name="calculate_button">Przelicz</string>
+    <string name="text_last_update">Ostatnia aktualizacja: rrrr-mm-dd</string>
+    <string name="update_button">Zaktualizuj dane</string>
+    <string name="result">Wynik</string>
+</resources>

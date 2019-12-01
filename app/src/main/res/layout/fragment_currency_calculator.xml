@@ -3,7 +3,7 @@
                 android:layout_width="match_parent" android:layout_height="match_parent">
 
     <Button
-            android:text="Choose currency"
+            android:text="@string/currency_from"
             android:drawableLeft="@drawable/ic_currency"
             android:paddingLeft="16dp"
             android:textColor="#4D4D4D"
@@ -19,7 +19,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="120dp" />
     <Button
-            android:text="Choose Currency"
+            android:text="@string/currency_to"
             android:background="@drawable/round_button"
             android:paddingLeft="16dp"
             android:textColor="#4D4D4D"
@@ -46,7 +46,7 @@
             android:textAlignment="center"
             android:layout_marginRight="16dp"
             android:textSize="20sp"
-            android:text="Provide quantity"/>
+            android:text="@string/quantity"/>
     <Button
             android:drawableLeft="@drawable/ic_search"
             android:drawableTint="#333333"
@@ -63,14 +63,14 @@
             android:background="@drawable/round_button_all"
             android:backgroundTint="#d2d8f9"
             android:textAlignment="center"
-            android:text="Calculate"
+            android:text="@string/calculate_button"
             android:textSize="20sp" />
 
     <TextView
             android:id="@+id/text_last_update"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Last update: yyyy-mm-dd"
+            android:text="@string/text_last_update"
             android:textSize="15sp"
             android:layout_marginTop="16dp"
             android:layout_marginLeft="50dp"
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/text_last_update"
             android:layout_below="@+id/calculate_button"
-            android:text="update data"
+            android:text="@string/update_button"
             android:padding="16dp"
             android:background="@drawable/round_button_all"
             android:backgroundTint="#d2d8f9"/>
@@ -90,7 +90,7 @@
             android:id="@+id/result"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Result"
+            android:text="@string/result"
             android:layout_below="@+id/update_button"
             android:layout_marginTop="32dp"
             android:layout_centerHorizontal="true"
