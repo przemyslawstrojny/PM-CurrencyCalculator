@@ -2,8 +2,8 @@
 <resources>
     <string name="app_name">Калькулятор Валют</string>
     <string name="calculate_button">Вивести результат</string>
-    <string name="currency_from">Вибери валюту</string>
-    <string name="currency_to">Вибери валюту</string>
+    <string name="currency_from">Вибрати валюту</string>
+    <string name="currency_to">Вибрати валюту</string>
     <string name="quantity">Подайте кількість</string>
     <string name="result">Результат</string>
     <string name="text_last_update">Останні обновлення:рррр-мм-дд</string>
@@ -11,5 +11,5 @@
     <string name="nav_search">Пошук</string>
     <string name="nav_show_chart">Аналітика</string>
     <string name="text_analysis">Данні</string>
-    <string name="currency_observed">Вибери валюту</string>
+    <string name="currency_observed">Вибрати валюту</string>
 </resources>
