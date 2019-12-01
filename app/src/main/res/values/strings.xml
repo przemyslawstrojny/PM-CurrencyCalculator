@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">CurrencyCalculator</string>
+    <string name="currency_from">Choose currency</string>
+    <string name="currency_to">Choose currency</string>
+    <string name="quantity">Provide quantity</string>
+    <string name="calculate_button">Calculate</string>
+    <string name="text_last_update">Last update: yyyy-mm-dd</string>
+    <string name="update_button">Update data</string>
+    <string name="result">Result</string>
+    <string name="nav_search">Search</string>
+    <string name="nav_show_chart">Analytics</string>
+    <string name="text_analysis">Data</string>
+    <string name="currency_observed">Choose currency</string>
+
 </resources>
