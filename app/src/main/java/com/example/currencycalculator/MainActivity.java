@@ -1,6 +1,7 @@
 package com.example.currencycalculator;
 
 import android.content.BroadcastReceiver;
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
@@ -32,6 +33,11 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new FragmentCurrencyCalculator()).commit();
+
+
+        // Run/Refresh CurrencyAlertsService
+        Intent serviceIntent = new Intent(this, CurrencyAlertsService.class);
+        startService(serviceIntent);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener =
