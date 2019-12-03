@@ -31,7 +31,6 @@ public class CurrencyListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_currency_list);
 
         listView = findViewById(R.id.listView1);
-        //testowygeneratordousuniecia();
 
         webClient.getCurrencies(new Callback() {
             @Override
@@ -69,9 +68,4 @@ public class CurrencyListActivity extends AppCompatActivity {
         });
     }
 
-    private void testowygeneratordousuniecia(){
-        currencyList.add(new Currency("PLN", 1,"1",1));
-        currencyList.add(new Currency("EUR", 1,"1",1));
-        currencyList.add(new Currency("USD", 1,"1",1));
-    }
 }
